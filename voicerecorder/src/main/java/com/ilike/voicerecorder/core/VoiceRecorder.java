@@ -38,7 +38,7 @@ public class VoiceRecorder {
     MediaRecorder recorder;
 
     static final String PREFIX = "voice";
-    static final String EXTENSION = ".amr";
+    static final String EXTENSION = ".aac";
 
     private boolean isRecording = false;
     private long startTime;
@@ -69,8 +69,11 @@ public class VoiceRecorder {
             }
             recorder = new MediaRecorder();
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            recorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
-            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+//            recorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
+//            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            recorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
+            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+
             recorder.setAudioChannels(1); // MONO
             recorder.setAudioSamplingRate(8000); // 8000Hz
             recorder.setAudioEncodingBitRate(64); // seems if change this to
